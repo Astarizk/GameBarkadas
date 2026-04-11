@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class DoorOrPortal : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Transform destination;
+    private GameObject player;
+
+    private void Awake()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Player"))
+        {
+            if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
+            {
+                player.transform.position = destination.position;
+            }
+        }
     }
 }

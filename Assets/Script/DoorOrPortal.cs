@@ -17,10 +17,7 @@ public class DoorOrPortal : MonoBehaviour
     {
         if (isPlayerInside && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
-            {
                 player.transform.position = destination.position;
-            }
         }
     }
 

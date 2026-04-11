@@ -5,7 +5,7 @@ public class LayerMovement : MonoBehaviour
 {
     private float movementspeed = 5f;
     private Rigidbody2D rb;
-
+    private int flip = 0;
     private Vector2 moveInput;
 
     void Start()
@@ -19,9 +19,17 @@ public class LayerMovement : MonoBehaviour
         float y = 0f;
 
         if (Keyboard.current.aKey.isPressed)
-            x = -1;
+        {
+            x = -1; 
+            flip = 1;
+        }
+            
         else if (Keyboard.current.dKey.isPressed)
+        {
             x = 1;
+            flip = 0;
+        }
+        
 
         if (Keyboard.current.wKey.isPressed)
             y = 1;
@@ -40,6 +48,14 @@ public class LayerMovement : MonoBehaviour
         else
         {
             moveInput = Vector2.zero;
+        }
+        if (flip == 0)
+        {
+            transform.localScale = new Vector3(6, 6, 6);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-6, 6, 6);
         }
     }
 

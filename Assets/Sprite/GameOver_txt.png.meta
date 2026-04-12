@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 03ce700f10582f24da8858f27346bb7f
+guid: 310a1fc7fea95a24797f8ecd3e1a9be0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -573001988548781412
-    second: misty-spooky-forest-background-gloomy-trees-scary-horror-foggy-woods-happy-halloween-dark-night-creepy-nature-mist-fantasy-290026416_0
+      213: 4500460428962418634
+    second: GameOver_txt_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: misty-spooky-forest-background-gloomy-trees-scary-horror-foggy-woods-happy-halloween-dark-night-creepy-nature-mist-fantasy-290026416_0
+      name: GameOver_txt_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 800
-        height: 534
+        x: 131
+        y: 76
+        width: 278
+        height: 226
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9a15f03ab94c08f0800000000000000
-      internalID: -573001988548781412
+      spriteID: acfc10a6ae8d47e30800000000000000
+      internalID: 4500460428962418634
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      misty-spooky-forest-background-gloomy-trees-scary-horror-foggy-woods-happy-halloween-dark-night-creepy-nature-mist-fantasy-290026416_0: -573001988548781412
+      GameOver_txt_0: 4500460428962418634
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

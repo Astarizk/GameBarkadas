@@ -6,11 +6,14 @@ public class DoorOrPortal : MonoBehaviour
     public Transform destination;
     private GameObject player;
 
+
+
     private bool isPlayerInside = false;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     private void Update()

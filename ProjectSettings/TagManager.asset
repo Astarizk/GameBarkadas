@@ -13,8 +13,13 @@ TagManager:
   - Water
   - UI
   - Wall
+<<<<<<< Updated upstream
   - 
   - 
+=======
+  - Enemy
+  - Player
+>>>>>>> Stashed changes
   - 
   - 
   - 

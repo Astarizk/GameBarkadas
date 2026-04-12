@@ -5,7 +5,6 @@ using UnityEngine.Rendering.Universal;
 
 public class Cabinet : MonoBehaviour
 {
-    public Transform destination;
     private GameObject player;
     private bool isHidden = false;
     private Light2D light;
@@ -23,6 +22,7 @@ public class Cabinet : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (isPlayerInside && Keyboard.current.eKey.wasPressedThisFrame && isHidden == false)
         {
             player.transform.position = destination.position;
@@ -32,7 +32,7 @@ public class Cabinet : MonoBehaviour
         {
             player.transform.position = destination.position;
             isHidden = false;
-        }
+        }*/
         if (light == null) return;
 
 
@@ -60,6 +60,7 @@ public class Cabinet : MonoBehaviour
             isPlayerInside = true;
             light.falloffIntensity = 1f;
             light.intensity = 0f; // simulate volumetric = 0
+            Debug.Log("Player is hiding");
         }
     }
 

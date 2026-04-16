@@ -9,8 +9,13 @@ public class EnemyAI : MonoBehaviour
     public Tilemap wallTilemap;
     public Transform player;
 
-    [Header("Movement")]
+    [Header("Movement & Vision")]
     public float moveSpeed = 3f;
+    public float visionRange = 10f; 
+    
+    [Header("Stealth Settings")]
+    [Tooltip("How many seconds the enemy waits at the door before following you.")]
+    public float teleportDelay = 1.5f; 
 
     // ── internals ──────────────────────────────────────────
     private Rigidbody2D rb;
@@ -18,9 +23,8 @@ public class EnemyAI : MonoBehaviour
     private int pathIndex = 0;
     private Vector3 currentTarget;
     private bool hasTarget = false;
+    private bool isWaitingToTeleport = false; // Prevents the enemy from moving while waiting
 
-    // how close (world units) the enemy must be to a waypoint
-    // before it advances — slightly larger than float error
     private const float ARRIVE_DIST = 0.08f;
 
     void Start()
@@ -33,10 +37,60 @@ public class EnemyAI : MonoBehaviour
             if (p) player = p.transform;
         }
 
-        // Snap enemy to nearest tile center on start
         transform.position = TileCenter(transform.position);
-
         StartCoroutine(RefreshPath());
+    }
+
+    // ─────────────────────────────────────────────────────
+    //  Called by DoorOrPortal.cs when 'E' is pressed
+    // ─────────────────────────────────────────────────────
+    public void OnPlayerUsedPortal(Vector3 portalPosition, Transform destination, bool wasHidingSpot)
+    {
+        float dist = Vector2.Distance(transform.position, portalPosition);
+        Vector3Int myCell = wallTilemap.WorldToCell(transform.position);
+        Vector3Int portalCell = wallTilemap.WorldToCell(portalPosition);
+
+        // If the enemy sees the portal being used...
+        if (dist <= visionRange && CheckLineOfSight(myCell, portalCell))
+        {
+            if (wasHidingSpot)
+            {
+                Debug.Log($"CAUGHT! Enemy saw you hide. Waiting {teleportDelay} seconds to enter...");
+            }
+            else
+            {
+                Debug.Log($"Enemy saw you use a door. Waiting {teleportDelay} seconds to follow...");
+            }
+
+            // Instantly stop the enemy from moving
+            isWaitingToTeleport = true;
+            hasTarget = false;
+            path.Clear();
+            rb.linearVelocity = Vector2.zero;
+
+            // Start the timer to teleport!
+            StartCoroutine(DelayedTeleport(destination));
+        }
+    }
+
+    // ─────────────────────────────────────────────────────
+    //  NEW: The Coroutine that creates the delay!
+    // ─────────────────────────────────────────────────────
+    private IEnumerator DelayedTeleport(Transform destination)
+    {
+        // Wait for the specified amount of seconds
+        yield return new WaitForSeconds(teleportDelay);
+
+        // Teleport the enemy!
+        if (destination != null)
+        {
+            transform.position = destination.position;
+            transform.position = TileCenter(transform.position); // Snap to new grid
+        }
+
+        // Allow the enemy to move and think again
+        isWaitingToTeleport = false;
+        Debug.Log("Enemy entered the room!");
     }
 
     // ─────────────────────────────────────────────────────
@@ -55,19 +109,28 @@ public class EnemyAI : MonoBehaviour
 
     void RecalcPath()
     {
-        // Always start A* from the NEAREST TILE CENTER the enemy has already passed or is on
+        // If we are currently paused outside a door waiting to teleport, don't think!
+        if (isWaitingToTeleport) return; 
+
+        // If the player successfully hid (and the enemy didn't catch them), give up!
+        if (DoorOrPortal.PlayerIsHidden)
+        {
+            hasTarget = false;
+            path.Clear();
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         Vector3Int startCell = wallTilemap.WorldToCell(transform.position);
         Vector3Int goalCell  = wallTilemap.WorldToCell(player.position);
 
-        if (IsWall(goalCell)) return;   // player inside wall – keep old path
+        if (IsWall(goalCell)) return;   
 
         var newPath = AStar(startCell, goalCell);
         if (newPath == null || newPath.Count == 0) return;
 
         path      = newPath;
         pathIndex = 0;
-
-        // Set the very next waypoint immediately
         AdvanceTarget();
     }
 
@@ -76,20 +139,23 @@ public class EnemyAI : MonoBehaviour
     // ─────────────────────────────────────────────────────
     void FixedUpdate()
     {
-        if (!hasTarget) return;
+        // Don't move if we are waiting at a door
+        if (!hasTarget || isWaitingToTeleport) 
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
 
         Vector2 dir = ((Vector2)currentTarget - rb.position).normalized;
         float dist  = Vector2.Distance(rb.position, currentTarget);
 
         if (dist <= ARRIVE_DIST)
         {
-            // Snap exactly to waypoint to eliminate drift
             rb.MovePosition(currentTarget);
             AdvanceTarget();
         }
         else
         {
-            // Move toward waypoint — no physics forces, just direct velocity
             rb.linearVelocity = dir * moveSpeed;
         }
     }
@@ -106,6 +172,37 @@ public class EnemyAI : MonoBehaviour
         currentTarget = TileCenterFromCell(path[pathIndex]);
         pathIndex++;
         hasTarget = true;
+    }
+
+    // ─────────────────────────────────────────────────────
+    //  Grid-Based Line of Sight (Bresenham's Line)
+    // ─────────────────────────────────────────────────────
+    bool CheckLineOfSight(Vector3Int start, Vector3Int end)
+    {
+        int x0 = start.x; int y0 = start.y;
+        int x1 = end.x; int y1 = end.y;
+        
+        int dx = Mathf.Abs(x1 - x0), sx = x0 < x1 ? 1 : -1;
+        int dy = -Mathf.Abs(y1 - y0), sy = y0 < y1 ? 1 : -1;
+        int err = dx + dy, e2;
+
+        while (true)
+        {
+            if (IsWall(new Vector3Int(x0, y0, 0))) 
+            {
+                if (x0 != x1 || y0 != y1) 
+                {
+                    return false; 
+                }
+            }
+            
+            if (x0 == x1 && y0 == y1) break; 
+            
+            e2 = 2 * err;
+            if (e2 >= dy) { err += dy; x0 += sx; }
+            if (e2 <= dx) { err += dx; y0 += sy; }
+        }
+        return true; 
     }
 
     // ─────────────────────────────────────────────────────
@@ -127,7 +224,6 @@ public class EnemyAI : MonoBehaviour
 
         while (openSet.Count > 0 && limit-- > 0)
         {
-            // Find lowest F
             int bestIdx = 0;
             for (int i = 1; i < openSet.Count; i++)
                 if (openSet[i].F < openSet[bestIdx].F) bestIdx = i;
@@ -172,7 +268,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        return null; // no path
+        return null; 
     }
 
     List<Vector3Int> Reconstruct(ANode end)
@@ -185,45 +281,20 @@ public class EnemyAI : MonoBehaviour
             cur = cur.parent;
         }
         result.Reverse();
-        if (result.Count > 0) result.RemoveAt(0); // skip tile enemy is already on
+        if (result.Count > 0) result.RemoveAt(0); 
         return result;
     }
 
-    // ─────────────────────────────────────────────────────
-    //  Helpers
-    // ─────────────────────────────────────────────────────
     bool IsWall(Vector3Int cell) => wallTilemap != null && wallTilemap.HasTile(cell);
+    float Manhattan(Vector3Int a, Vector3Int b) => Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
+    Vector3 TileCenter(Vector3 worldPos) => TileCenterFromCell(wallTilemap.WorldToCell(worldPos));
+    Vector3 TileCenterFromCell(Vector3Int cell) => wallTilemap.GetCellCenterWorld(cell);
 
-    float Manhattan(Vector3Int a, Vector3Int b)
-        => Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
-
-    // Returns world-space center of the tile the world position sits in
-    Vector3 TileCenter(Vector3 worldPos)
-    {
-        Vector3Int cell = wallTilemap.WorldToCell(worldPos);
-        return TileCenterFromCell(cell);
-    }
-
-    Vector3 TileCenterFromCell(Vector3Int cell)
-    {
-        // GetCellCenterWorld respects your tilemap's cell size & offset
-        return wallTilemap.GetCellCenterWorld(cell);
-    }
-
-    // ─────────────────────────────────────────────────────
-    //  A* Node (class so it can be mutated in open set)
-    // ─────────────────────────────────────────────────────
     class ANode
     {
-        public Vector3Int pos;
-        public ANode      parent;
-        public float      g;
-        public float      h;
-        public float      F => g + h;
-
+        public Vector3Int pos; public ANode parent;
+        public float g; public float h; public float F => g + h;
         public ANode(Vector3Int p, ANode par, float g, float h)
-        {
-            pos = p; parent = par; this.g = g; this.h = h;
-        }
+        { pos = p; parent = par; this.g = g; this.h = h; }
     }
 }

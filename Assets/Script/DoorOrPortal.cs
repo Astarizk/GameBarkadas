@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class DoorOrPortal : MonoBehaviour
 {
-    public GameManager Manager;
     public Transform destination;
 
     private GameObject player;

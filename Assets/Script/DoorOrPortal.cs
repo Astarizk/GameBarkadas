@@ -6,7 +6,6 @@ public class DoorOrPortal : MonoBehaviour
     // Global variable so EnemyAI knows if we are currently hidden
     public static bool PlayerIsHidden = false;
 
-    public GameManager Manager;
     public Transform destination;
 
     [Header("Stealth Settings")]

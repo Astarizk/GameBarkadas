@@ -17,6 +17,10 @@ public class LayerMovement : MonoBehaviour
     {
         float x = 0f;
         float y = 0f;
+        if (Time.timeScale == 0f)
+        {
+            return; // stop all movement logic when paused
+        }
 
         if (Keyboard.current.aKey.isPressed)
         {
@@ -24,7 +28,7 @@ public class LayerMovement : MonoBehaviour
             flip = 1;
         }
             
-        else if (Keyboard.current.dKey.isPressed)
+        else if (Keyboard.current.dKey.isPressed )
         {
             x = 1;
             flip = 0;

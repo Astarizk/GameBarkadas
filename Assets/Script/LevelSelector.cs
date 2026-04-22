@@ -9,7 +9,7 @@ public class LevelSelector : MonoBehaviour
     }
     public void Level1()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(2);
     }    
     public void Level2()
     {

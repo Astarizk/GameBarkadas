@@ -5,7 +5,7 @@ public class LevelSelector : MonoBehaviour
 {
     public void Test()
     {
-        SceneManager.LoadScene("TEST_1");
+        SceneManager.LoadScene(1);
     }
     public void Level1()
     {

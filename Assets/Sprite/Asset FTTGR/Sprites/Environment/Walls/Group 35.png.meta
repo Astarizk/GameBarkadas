@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ff8140ab5cc087945a7d4d757f9b2f7b
+guid: 494c76cbf304def49a6ed7446602ef03
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8011537592469202121
-    second: garbage bag 2 2_0
+      213: -8120302050354792237
+    second: Group 35_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 1100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +100,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: garbage bag 2 2_0
+      name: Group 35_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 575
-        height: 396
+        width: 1148
+        height: 1230
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c4a0df4ef2be2f60800000000000000
-      internalID: 8011537592469202121
+      spriteID: 3d8f9b3fe44ee4f80800000000000000
+      internalID: -8120302050354792237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Group 35_1
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 0
+        width: 1148
+        height: 1230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0b4b2c8b4132c4eb51786732d68178
+      internalID: -1994398981
       vertices: []
       indices: 
       edges: []
@@ -125,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cbdba07e9e03f0740815e342ede40752
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +155,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":1148.0,"y":1230.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      garbage bag 2 2_0: 8011537592469202121
+      Group 35_0: -8120302050354792237
+      Group 35_1: -1994398981
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

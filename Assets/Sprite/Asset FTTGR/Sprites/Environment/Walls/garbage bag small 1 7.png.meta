@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: ff8140ab5cc087945a7d4d757f9b2f7b
+guid: 2b4469ec9c08c944d8c74a5af181c938
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8011537592469202121
-    second: garbage bag 2 2_0
+      213: -8107834623239539237
+    second: garbage bag small 1 7_0
+  - first:
+      213: 6754871280927644080
+    second: garbage bag small 1 7_1
+  - first:
+      213: -8590381215977522714
+    second: garbage bag small 1 7_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: garbage bag 2 2_0
+      name: garbage bag small 1 7_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 575
-        height: 396
+        width: 296
+        height: 235
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c4a0df4ef2be2f60800000000000000
-      internalID: 8011537592469202121
+      spriteID: bd5b1380e5f2b7f80800000000000000
+      internalID: -8107834623239539237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garbage bag small 1 7_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 234
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b91e2324af1ebd50800000000000000
+      internalID: 6754871280927644080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: garbage bag small 1 7_2
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 234
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9b8704cc5d8c880800000000000000
+      internalID: -8590381215977522714
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      garbage bag 2 2_0: 8011537592469202121
+      garbage bag small 1 7_0: -8107834623239539237
+      garbage bag small 1 7_1: 6754871280927644080
+      garbage bag small 1 7_2: -8590381215977522714
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

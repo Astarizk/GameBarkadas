@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class StairTP : MonoBehaviour
 {
     // Global variable so EnemyAI knows if we are currently hidden
     public static bool PlayerIsHidden = false;
-
+    public bool isNewScene;
+    public int Scene;
     public Transform destination;
 
     [Header("Stealth Settings")]
@@ -23,9 +25,17 @@ public class StairTP : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
         {
-            Debug.Log("Teleport");
-            player.transform.position = destination.position;
+            if (isNewScene == false)
+            {
+                Debug.Log("Teleport");
+                player.transform.position = destination.position;
+            }
+            if (isNewScene == true)
+            {
+                SceneManager.LoadScene(Scene);
+            }
         }
     }
 

@@ -11,25 +11,42 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Movement & Vision")]
     public float moveSpeed = 3f;
-    public float visionRange = 10f; 
-    
+    public float visionRange = 10f;
+
     [Header("Stealth Settings")]
     [Tooltip("How many seconds the enemy waits at the door before following you.")]
-    public float teleportDelay = 1.5f; 
+    public float teleportDelay = 1.5f;
 
-    // ── internals ──────────────────────────────────────────
+    [Header("Smoothing")]
+    [Tooltip("How quickly velocity changes (lower = snappier, higher = smoother).")]
+    public float velocitySmoothTime = 0.08f;
+
+    [Header("Pathing Stability")]
+    [Tooltip("How often path is recalculated.")]
+    public float repathInterval = 0.35f;
+    [Tooltip("Minimum world movement before we allow another repath.")]
+    public float minMoveBeforeRepath = 0.2f;
+    [Tooltip("When arriving, advance to next node if within this distance.")]
+    public float arriveDistance = 0.12f;
+
     private Rigidbody2D rb;
     private List<Vector3Int> path = new List<Vector3Int>();
     private int pathIndex = 0;
     private Vector3 currentTarget;
     private bool hasTarget = false;
-    private bool isWaitingToTeleport = false; // Prevents the enemy from moving while waiting
+    private bool isWaitingToTeleport = false;
+    private Vector2 velocitySmoothing;
 
-    private const float ARRIVE_DIST = 0.08f;
+    // Repath throttling
+    private Vector3 lastRepathPos;
+    private Vector3Int lastGoalCell;
+    private bool hasLastGoal = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         if (player == null)
         {
@@ -38,195 +55,201 @@ public class EnemyAI : MonoBehaviour
         }
 
         transform.position = TileCenter(transform.position);
+        lastRepathPos = transform.position;
         StartCoroutine(RefreshPath());
     }
 
-    // ─────────────────────────────────────────────────────
-    //  Called by DoorOrPortal.cs when 'E' is pressed
-    // ─────────────────────────────────────────────────────
     public void OnPlayerUsedPortal(Vector3 portalPosition, Transform destination, bool wasHidingSpot)
     {
         float dist = Vector2.Distance(transform.position, portalPosition);
         Vector3Int myCell = wallTilemap.WorldToCell(transform.position);
         Vector3Int portalCell = wallTilemap.WorldToCell(portalPosition);
 
-        // If the enemy sees the portal being used...
         if (dist <= visionRange && CheckLineOfSight(myCell, portalCell))
         {
-            if (wasHidingSpot)
-            {
-                Debug.Log($"CAUGHT! Enemy saw you hide. Waiting {teleportDelay} seconds to enter...");
-            }
-            else
-            {
-                Debug.Log($"Enemy saw you use a door. Waiting {teleportDelay} seconds to follow...");
-            }
-
-            // Instantly stop the enemy from moving
             isWaitingToTeleport = true;
             hasTarget = false;
             path.Clear();
             rb.linearVelocity = Vector2.zero;
-
-            // Start the timer to teleport!
+            velocitySmoothing = Vector2.zero;
             StartCoroutine(DelayedTeleport(destination));
         }
     }
 
-    // ─────────────────────────────────────────────────────
-    //  NEW: The Coroutine that creates the delay!
-    // ─────────────────────────────────────────────────────
     private IEnumerator DelayedTeleport(Transform destination)
     {
-        // Wait for the specified amount of seconds
         yield return new WaitForSeconds(teleportDelay);
 
-        // Teleport the enemy!
         if (destination != null)
         {
-            transform.position = destination.position;
-            transform.position = TileCenter(transform.position); // Snap to new grid
+            transform.position = TileCenter(destination.position);
         }
 
-        // Allow the enemy to move and think again
         isWaitingToTeleport = false;
-        Debug.Log("Enemy entered the room!");
+
+        // force fresh path after teleport
+        hasLastGoal = false;
+        path.Clear();
+        hasTarget = false;
+        lastRepathPos = transform.position;
     }
 
-    // ─────────────────────────────────────────────────────
-    //  Path refresh – runs every 0.25 s
-    // ─────────────────────────────────────────────────────
     IEnumerator RefreshPath()
     {
         while (true)
         {
-            if (player != null)
-                RecalcPath();
-
-            yield return new WaitForSeconds(0.25f);
+            if (player != null) RecalcPath();
+            yield return new WaitForSeconds(repathInterval);
         }
     }
 
     void RecalcPath()
     {
-        // If we are currently paused outside a door waiting to teleport, don't think!
-        if (isWaitingToTeleport) return; 
+        if (isWaitingToTeleport) return;
 
-        // If the player successfully hid (and the enemy didn't catch them), give up!
         if (DoorOrPortal.PlayerIsHidden)
         {
             hasTarget = false;
             path.Clear();
             rb.linearVelocity = Vector2.zero;
+            velocitySmoothing = Vector2.zero;
             return;
         }
 
         Vector3Int startCell = wallTilemap.WorldToCell(transform.position);
-        Vector3Int goalCell  = wallTilemap.WorldToCell(player.position);
+        Vector3Int goalCell = wallTilemap.WorldToCell(player.position);
 
-        if (IsWall(goalCell)) return;   
+        if (IsWall(goalCell)) return;
+
+        // Throttle repath if enemy barely moved and player stayed in same cell
+        float movedSinceRepath = Vector2.Distance(transform.position, lastRepathPos);
+        if (hasLastGoal && goalCell == lastGoalCell && movedSinceRepath < minMoveBeforeRepath && path.Count > 0)
+        {
+            return;
+        }
 
         var newPath = AStar(startCell, goalCell);
         if (newPath == null || newPath.Count == 0) return;
 
-        path      = newPath;
-        pathIndex = 0;
-        AdvanceTarget();
+        // Pick nearest forward waypoint to avoid snapping backwards/circling
+        int bestIdx = 0;
+        float bestDist = float.MaxValue;
+        Vector2 pos = rb.position;
+
+        for (int i = 0; i < newPath.Count; i++)
+        {
+            Vector2 wp = TileCenterFromCell(newPath[i]);
+            float d = (wp - pos).sqrMagnitude;
+            if (d < bestDist)
+            {
+                bestDist = d;
+                bestIdx = i;
+            }
+        }
+
+        // Start slightly ahead when possible to reduce micro-oscillation
+        path = newPath;
+        pathIndex = Mathf.Min(bestIdx + 1, path.Count - 1);
+
+        currentTarget = TileCenterFromCell(path[pathIndex]);
+        hasTarget = true;
+
+        lastGoalCell = goalCell;
+        hasLastGoal = true;
+        lastRepathPos = transform.position;
     }
 
-    // ─────────────────────────────────────────────────────
-    //  Update – smooth movement toward current waypoint
-    // ─────────────────────────────────────────────────────
     void FixedUpdate()
     {
-        // Don't move if we are waiting at a door
-        if (!hasTarget || isWaitingToTeleport) 
+        if (!hasTarget || isWaitingToTeleport)
         {
-            rb.linearVelocity = Vector2.zero;
+            rb.linearVelocity = Vector2.SmoothDamp(
+                rb.linearVelocity, Vector2.zero, ref velocitySmoothing, velocitySmoothTime
+            );
             return;
         }
 
-        Vector2 dir = ((Vector2)currentTarget - rb.position).normalized;
-        float dist  = Vector2.Distance(rb.position, currentTarget);
+        Vector2 toTarget = (Vector2)currentTarget - rb.position;
+        float dist = toTarget.magnitude;
 
-        if (dist <= ARRIVE_DIST)
+        if (dist <= arriveDistance)
         {
-            rb.MovePosition(currentTarget);
             AdvanceTarget();
+            return;
         }
-        else
-        {
-            rb.linearVelocity = dir * moveSpeed;
-        }
+
+        Vector2 desiredVelocity = toTarget.normalized * moveSpeed;
+        rb.linearVelocity = Vector2.SmoothDamp(
+            rb.linearVelocity, desiredVelocity, ref velocitySmoothing, velocitySmoothTime
+        );
     }
 
     void AdvanceTarget()
     {
-        if (pathIndex >= path.Count)
+        pathIndex++;
+
+        if (path == null || pathIndex >= path.Count)
         {
             rb.linearVelocity = Vector2.zero;
+            velocitySmoothing = Vector2.zero;
             hasTarget = false;
             return;
         }
 
         currentTarget = TileCenterFromCell(path[pathIndex]);
-        pathIndex++;
         hasTarget = true;
     }
 
-    // ─────────────────────────────────────────────────────
-    //  Grid-Based Line of Sight (Bresenham's Line)
-    // ─────────────────────────────────────────────────────
     bool CheckLineOfSight(Vector3Int start, Vector3Int end)
     {
         int x0 = start.x; int y0 = start.y;
         int x1 = end.x; int y1 = end.y;
-        
+
         int dx = Mathf.Abs(x1 - x0), sx = x0 < x1 ? 1 : -1;
         int dy = -Mathf.Abs(y1 - y0), sy = y0 < y1 ? 1 : -1;
         int err = dx + dy, e2;
 
         while (true)
         {
-            if (IsWall(new Vector3Int(x0, y0, 0))) 
+            if (IsWall(new Vector3Int(x0, y0, 0)))
             {
-                if (x0 != x1 || y0 != y1) 
-                {
-                    return false; 
-                }
+                if (x0 != x1 || y0 != y1) return false;
             }
-            
-            if (x0 == x1 && y0 == y1) break; 
-            
+
+            if (x0 == x1 && y0 == y1) break;
+
             e2 = 2 * err;
             if (e2 >= dy) { err += dy; x0 += sx; }
             if (e2 <= dx) { err += dx; y0 += sy; }
         }
-        return true; 
+        return true;
     }
 
-    // ─────────────────────────────────────────────────────
-    //  A* (BFS-quality, 4-directional, tile-based)
-    // ─────────────────────────────────────────────────────
     List<Vector3Int> AStar(Vector3Int start, Vector3Int goal)
     {
         if (IsWall(start)) return null;
 
-        var openSet   = new List<ANode>();
+        var openSet = new List<ANode>();
         var closedSet = new HashSet<Vector3Int>();
-        var nodeMap   = new Dictionary<Vector3Int, ANode>();
+        var nodeMap = new Dictionary<Vector3Int, ANode>();
 
         var startNode = new ANode(start, null, 0, Manhattan(start, goal));
         openSet.Add(startNode);
         nodeMap[start] = startNode;
 
-        int limit = 2000;
+        int limit = 4000;
 
         while (openSet.Count > 0 && limit-- > 0)
         {
             int bestIdx = 0;
             for (int i = 1; i < openSet.Count; i++)
-                if (openSet[i].F < openSet[bestIdx].F) bestIdx = i;
+            {
+                if (openSet[i].F < openSet[bestIdx].F ||
+                   (Mathf.Approximately(openSet[i].F, openSet[bestIdx].F) && openSet[i].h < openSet[bestIdx].h))
+                {
+                    bestIdx = i;
+                }
+            }
 
             ANode cur = openSet[bestIdx];
             openSet.RemoveAt(bestIdx);
@@ -253,10 +276,9 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (g < existing.g)
                     {
-                        existing.g      = g;
+                        existing.g = g;
                         existing.parent = cur;
-                        if (!openSet.Contains(existing))
-                            openSet.Add(existing);
+                        if (!openSet.Contains(existing)) openSet.Add(existing);
                     }
                 }
                 else
@@ -268,7 +290,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        return null; 
+        return null;
     }
 
     List<Vector3Int> Reconstruct(ANode end)
@@ -281,7 +303,7 @@ public class EnemyAI : MonoBehaviour
             cur = cur.parent;
         }
         result.Reverse();
-        if (result.Count > 0) result.RemoveAt(0); 
+        if (result.Count > 0) result.RemoveAt(0);
         return result;
     }
 
@@ -292,9 +314,18 @@ public class EnemyAI : MonoBehaviour
 
     class ANode
     {
-        public Vector3Int pos; public ANode parent;
-        public float g; public float h; public float F => g + h;
+        public Vector3Int pos;
+        public ANode parent;
+        public float g;
+        public float h;
+        public float F => g + h;
+
         public ANode(Vector3Int p, ANode par, float g, float h)
-        { pos = p; parent = par; this.g = g; this.h = h; }
+        {
+            pos = p;
+            parent = par;
+            this.g = g;
+            this.h = h;
+        }
     }
 }

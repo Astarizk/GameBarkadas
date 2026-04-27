@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: b43d88d4cc17c3043af319963539a144
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8331513224762688453
+    second: tilesethospital-4 1_0
+  - first:
+      213: -1419860647479181514
+    second: tilesethospital-4 1_1
+  - first:
+      213: -2390543152525404619
+    second: tilesethospital-4 1_2
+  - first:
+      213: -6612933366677155944
+    second: tilesethospital-4 1_3
+  - first:
+      213: 2596516460041644351
+    second: tilesethospital-4 1_4
+  - first:
+      213: -2356890958788186414
+    second: tilesethospital-4 1_5
+  - first:
+      213: 3502552569932607649
+    second: tilesethospital-4 1_6
+  - first:
+      213: 8706451920510751138
+    second: tilesethospital-4 1_7
+  - first:
+      213: 5722280399733970998
+    second: tilesethospital-4 1_8
+  - first:
+      213: -7144296926082810211
+    second: tilesethospital-4 1_9
+  - first:
+      213: 7570913139189932496
+    second: tilesethospital-4 1_10
+  - first:
+      213: 1211867314329513332
+    second: tilesethospital-4 1_11
+  - first:
+      213: 5528710199060319594
+    second: tilesethospital-4 1_12
+  - first:
+      213: 3814016216744173494
+    second: tilesethospital-4 1_13
+  - first:
+      213: 6871070477391585257
+    second: tilesethospital-4 1_14
+  - first:
+      213: -6040042798082392575
+    second: tilesethospital-4 1_15
+  - first:
+      213: -3977244340231502524
+    second: tilesethospital-4 1_16
+  - first:
+      213: 3368694792554318868
+    second: tilesethospital-4 1_17
+  - first:
+      213: 6532780709853604696
+    second: tilesethospital-4 1_18
+  - first:
+      213: -5120993464564486875
+    second: tilesethospital-4 1_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tilesethospital-4 1_0
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 15907
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c3037bb22b7f9370800000000000000
+      internalID: 8331513224762688453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_1
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1042
+        width: 14866
+        height: 14866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63f727c8344ab4ce0800000000000000
+      internalID: -1419860647479181514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_2
+      rect:
+        serializedVersion: 2
+        x: 4254
+        y: 15907
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5361b7d1ba513ded0800000000000000
+      internalID: -2390543152525404619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_3
+      rect:
+        serializedVersion: 2
+        x: 5648
+        y: 15907
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f41ebc3242a34a0800000000000000
+      internalID: -6612933366677155944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_4
+      rect:
+        serializedVersion: 2
+        x: 5975
+        y: 15907
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f39ac36a6fda80420800000000000000
+      internalID: 2596516460041644351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_5
+      rect:
+        serializedVersion: 2
+        x: 8428
+        y: 15907
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dea91b0924aa4fd0800000000000000
+      internalID: -2356890958788186414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_6
+      rect:
+        serializedVersion: 2
+        x: 11669
+        y: 15907
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a0f6f941019b9030800000000000000
+      internalID: 3502552569932607649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_7
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 14785
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a19f0894e783d870800000000000000
+      internalID: 8706451920510751138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_8
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 13788
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 638d253a4bf996f40800000000000000
+      internalID: 5722280399733970998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 8624
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e3bee3ccb5adc90800000000000000
+      internalID: -7144296926082810211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_10
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 8557
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d1e0ce3369411960800000000000000
+      internalID: 7570913139189932496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_11
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 8624
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d6481d6ea61d010800000000000000
+      internalID: 1211867314329513332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_12
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 8528
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6dc11932ace9bc40800000000000000
+      internalID: 5528710199060319594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_13
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 8528
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bf9d96aa8b1ee430800000000000000
+      internalID: 3814016216744173494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_14
+      rect:
+        serializedVersion: 2
+        x: 15907
+        y: 6372
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef5997d132fa5f50800000000000000
+      internalID: 6871070477391585257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_15
+      rect:
+        serializedVersion: 2
+        x: 15907
+        y: 5250
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e7420a3157d2ca0800000000000000
+      internalID: -6040042798082392575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_16
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 1013
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 445819b485dfdc8c0800000000000000
+      internalID: -3977244340231502524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_17
+      rect:
+        serializedVersion: 2
+        x: 3194
+        y: 1013
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c88e2d01200ce20800000000000000
+      internalID: 3368694792554318868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_18
+      rect:
+        serializedVersion: 2
+        x: 4191
+        y: 1013
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b2956817919aa50800000000000000
+      internalID: 6532780709853604696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesethospital-4 1_19
+      rect:
+        serializedVersion: 2
+        x: 14847
+        y: 1013
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d698f73939ee8b0800000000000000
+      internalID: -5120993464564486875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tilesethospital-4 1_0: 8331513224762688453
+      tilesethospital-4 1_1: -1419860647479181514
+      tilesethospital-4 1_10: 7570913139189932496
+      tilesethospital-4 1_11: 1211867314329513332
+      tilesethospital-4 1_12: 5528710199060319594
+      tilesethospital-4 1_13: 3814016216744173494
+      tilesethospital-4 1_14: 6871070477391585257
+      tilesethospital-4 1_15: -6040042798082392575
+      tilesethospital-4 1_16: -3977244340231502524
+      tilesethospital-4 1_17: 3368694792554318868
+      tilesethospital-4 1_18: 6532780709853604696
+      tilesethospital-4 1_19: -5120993464564486875
+      tilesethospital-4 1_2: -2390543152525404619
+      tilesethospital-4 1_3: -6612933366677155944
+      tilesethospital-4 1_4: 2596516460041644351
+      tilesethospital-4 1_5: -2356890958788186414
+      tilesethospital-4 1_6: 3502552569932607649
+      tilesethospital-4 1_7: 8706451920510751138
+      tilesethospital-4 1_8: 5722280399733970998
+      tilesethospital-4 1_9: -7144296926082810211
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

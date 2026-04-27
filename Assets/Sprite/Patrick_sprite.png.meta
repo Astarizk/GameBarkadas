@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 099bdda4cb5507948a65d9035fb0a61c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1986029182966408668
+    second: Patrick_sprite_0
+  - first:
+      213: -85201636295385092
+    second: Patrick_sprite_1
+  - first:
+      213: -7468417060539638999
+    second: Patrick_sprite_2
+  - first:
+      213: 4247891666813589411
+    second: Patrick_sprite_3
+  - first:
+      213: 1794004473962593752
+    second: Patrick_sprite_4
+  - first:
+      213: -7887406584309537056
+    second: Patrick_sprite_5
+  - first:
+      213: 2046161530430645684
+    second: Patrick_sprite_6
+  - first:
+      213: 4655466397764885385
+    second: Patrick_sprite_7
+  - first:
+      213: -6168654164323020796
+    second: Patrick_sprite_8
+  - first:
+      213: 7639889176266521646
+    second: Patrick_sprite_9
+  - first:
+      213: 3199507446915419949
+    second: Patrick_sprite_10
+  - first:
+      213: 424637018401776798
+    second: Patrick_sprite_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 900
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Patrick_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 703
+        width: 95
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42a5ab30bf43074e0800000000000000
+      internalID: -1986029182966408668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 703
+        width: 94
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cffd45e209d41def0800000000000000
+      internalID: -85201636295385092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 703
+        width: 94
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b5118b04ada5890800000000000000
+      internalID: -7468417060539638999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 486
+        width: 95
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a714c4f6fa83fa30800000000000000
+      internalID: 4247891666813589411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 486
+        width: 94
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dd7004609595e810800000000000000
+      internalID: 1794004473962593752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 486
+        width: 94
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e62727308d4a8290800000000000000
+      internalID: -7887406584309537056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 269
+        width: 95
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b56366221d656c10800000000000000
+      internalID: 2046161530430645684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 269
+        width: 94
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b1b86e50a8b9040800000000000000
+      internalID: 4655466397764885385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 269
+        width: 93
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 400da4178b9846aa0800000000000000
+      internalID: -6168654164323020796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 52
+        width: 95
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2cb7ba5ab6560a60800000000000000
+      internalID: 7639889176266521646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 52
+        width: 94
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2f4c9d321fe66c20800000000000000
+      internalID: 3199507446915419949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Patrick_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 52
+        width: 94
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94a1505e1d94e500800000000000000
+      internalID: 424637018401776798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Patrick_sprite_0: -1986029182966408668
+      Patrick_sprite_1: -85201636295385092
+      Patrick_sprite_10: 3199507446915419949
+      Patrick_sprite_11: 424637018401776798
+      Patrick_sprite_2: -7468417060539638999
+      Patrick_sprite_3: 4247891666813589411
+      Patrick_sprite_4: 1794004473962593752
+      Patrick_sprite_5: -7887406584309537056
+      Patrick_sprite_6: 2046161530430645684
+      Patrick_sprite_7: 4655466397764885385
+      Patrick_sprite_8: -6168654164323020796
+      Patrick_sprite_9: 7639889176266521646
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -7667,6 +7667,26 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -12, y: 18, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 705
+      m_TileSpriteIndex: 704
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -11, y: 18, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 704
+      m_TileSpriteIndex: 703
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -10, y: 18, z: 0}
     second:
       serializedVersion: 2
@@ -7872,6 +7892,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 558
       m_TileSpriteIndex: 555
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -11, y: 19, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 703
+      m_TileSpriteIndex: 678
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -10970,6 +11000,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 11f95121bccad0a439265404cff44fff, type: 2}
   - serializedVersion: 2
     m_RefCount: 1
+<<<<<<< Updated upstream
     m_Data: {fileID: 11400000, guid: 6e1c5cda8f68d6943b8d5979b562cbaa, type: 2}
   - serializedVersion: 2
     m_RefCount: 1
@@ -11490,6 +11521,15 @@ Tilemap:
   - serializedVersion: 2
     m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 544048981fabde04a9db35f2b4eb837f, type: 2}
+=======
+    m_Data: {fileID: 11400000, guid: d60b0649dcef68a428db83d87fe913e2, type: 2}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: e01feb432139fe04ca6da170b81ba4d5, type: 2}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: f498bb85149923b43a74d7fc0f5428b9, type: 2}
+>>>>>>> Stashed changes
   m_TileSpriteArray:
   - serializedVersion: 2
     m_RefCount: 1
@@ -13526,7 +13566,7 @@ Tilemap:
     m_RefCount: 1
     m_Data: {fileID: -6362050553096186104, guid: 6c3b2bd621bd0d445b734110e377b6b0, type: 3}
   - serializedVersion: 2
-    m_RefCount: 1
+    m_RefCount: 2
     m_Data: {fileID: 3371574429156118817, guid: 1847aa75c3d3b5843a46c4febda88b0b, type: 3}
   - serializedVersion: 2
     m_RefCount: 1
@@ -13602,6 +13642,7 @@ Tilemap:
     m_Data: {fileID: 4070825616440409504, guid: 0683f1053ce2b4f4a9235028bb8d9eb6, type: 3}
   - serializedVersion: 2
     m_RefCount: 1
+<<<<<<< Updated upstream
     m_Data: {fileID: -2754917399750712272, guid: 7dc743450c6a2e440bea0dff6d893789, type: 3}
   - serializedVersion: 2
     m_RefCount: 1
@@ -14125,6 +14166,15 @@ Tilemap:
   m_TileMatrixArray:
   - serializedVersion: 2
     m_RefCount: 866
+=======
+    m_Data: {fileID: 8088677954319517129, guid: 71acab3201284b14e876c692013fd36c, type: 3}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {fileID: 7999956995494447542, guid: ebc5c9a78a4fe6b4aaaeedf9f0c153ee, type: 3}
+  m_TileMatrixArray:
+  - serializedVersion: 2
+    m_RefCount: 695
+>>>>>>> Stashed changes
     m_Data:
       e00: 1
       e01: 0
@@ -14182,6 +14232,7 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - serializedVersion: 2
+<<<<<<< Updated upstream
     m_RefCount: 788
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - serializedVersion: 2
@@ -14451,6 +14502,277 @@ Tilemap:
   - serializedVersion: 2
     m_RefCount: 1
     m_Data: {r: 0.7577778, g: 0.3532562, b: 0.48144218, a: 1}
+=======
+    m_RefCount: 617
+    m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.76972604, g: 0.45486617, b: 0.49325964, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9088593, g: 0.45540863, b: 0.5883393, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8873678, g: 0.36682725, b: 0.4664544, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8369542, g: 0.45121655, b: 0.5526476, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9220189, g: 0.50823766, b: 0.5870035, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.95765483, g: 0.42563432, b: 0.5435772, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.79767096, g: 0.36404407, b: 0.4398079, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.77633196, g: 0.34261465, b: 0.4693071, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.81072026, g: 0.5629218, b: 0.6200289, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9182804, g: 0.4554229, b: 0.5387759, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.90647596, g: 0.5413093, b: 0.6627091, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.71320176, g: 0.34495917, b: 0.35131684, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7069064, g: 0.4374377, b: 0.4842575, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.98165166, g: 0.5428591, b: 0.60886365, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7426203, g: 0.4385621, b: 0.4436461, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.90167516, g: 0.41886887, b: 0.4859758, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.88862234, g: 0.50201845, b: 0.5280758, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8516994, g: 0.52019453, b: 0.551548, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.93296933, g: 0.4994938, b: 0.551757, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9050396, g: 0.60291314, b: 0.674559, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.86916023, g: 0.38331038, b: 0.39234, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.966716, g: 0.46621904, b: 0.49624884, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8886028, g: 0.49320623, b: 0.55360025, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.82677805, g: 0.3785952, b: 0.44666454, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8804944, g: 0.5590299, b: 0.6327613, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7794072, g: 0.3131679, b: 0.4198871, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.75921255, g: 0.445842, b: 0.51371735, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8679085, g: 0.38928512, b: 0.43437672, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.722111, g: 0.4710544, b: 0.4815278, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7274486, g: 0.42251104, b: 0.49496588, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8890661, g: 0.40293646, b: 0.5533239, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.86870337, g: 0.3979199, b: 0.48759562, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9936753, g: 0.44475728, b: 0.45424485, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7183225, g: 0.46510997, b: 0.5274428, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9355363, g: 0.5687247, b: 0.62948114, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.74031186, g: 0.32821715, b: 0.42973277, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.87458956, g: 0.43135545, b: 0.492854, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.79975253, g: 0.5356901, b: 0.575972, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.72112155, g: 0.39862236, b: 0.42471558, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.85209763, g: 0.40244937, b: 0.49547783, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.79891694, g: 0.48743346, b: 0.5846702, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7007586, g: 0.30802745, b: 0.33298078, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.837496, g: 0.39384988, b: 0.5281803, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.71067333, g: 0.3932718, b: 0.4543095, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9623796, g: 0.61019844, b: 0.6876103, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8108334, g: 0.53043026, b: 0.5809439, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9821226, g: 0.50020444, b: 0.5625489, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.70209897, g: 0.4718384, b: 0.50048906, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.83975935, g: 0.5183005, b: 0.58663875, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9991129, g: 0.5270503, b: 0.6747714, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7798567, g: 0.40053064, b: 0.4997895, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9465668, g: 0.54762477, b: 0.6788735, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8527395, g: 0.5965255, b: 0.65129066, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.86016953, g: 0.42831883, b: 0.44603083, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7584649, g: 0.40540794, b: 0.5145147, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.94270384, g: 0.5407939, b: 0.6566941, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8765039, g: 0.6030555, b: 0.68017495, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.70362574, g: 0.3696313, b: 0.38398638, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.79623663, g: 0.3198735, b: 0.44967103, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.86938393, g: 0.5800155, b: 0.6178018, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.82169497, g: 0.34178692, b: 0.49502748, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.90657496, g: 0.39624223, b: 0.5578125, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7609463, g: 0.36044803, b: 0.39123002, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.88707334, g: 0.61168885, b: 0.67907387, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8233665, g: 0.5194144, b: 0.5484069, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.72082746, g: 0.35887593, b: 0.4523887, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8952072, g: 0.56897205, b: 0.5934847, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.79262453, g: 0.4685161, b: 0.57060266, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7080741, g: 0.40606046, b: 0.46548188, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9996143, g: 0.59435844, b: 0.68586934, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8238809, g: 0.43338177, b: 0.49721998, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7383662, g: 0.35215417, b: 0.42078274, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9154871, g: 0.39697033, b: 0.44659284, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8755389, g: 0.579369, b: 0.63325393, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9340319, g: 0.5171779, b: 0.5468824, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.75164026, g: 0.4779337, b: 0.5265559, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9956968, g: 0.6721279, b: 0.6861414, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9818258, g: 0.6387924, b: 0.68320525, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.815077, g: 0.48775968, b: 0.5703742, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.9038265, g: 0.5630591, b: 0.6010826, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7903803, g: 0.52030414, b: 0.54062754, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.86554104, g: 0.46814305, b: 0.4805786, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.82988536, g: 0.52173626, b: 0.554712, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8745006, g: 0.48588315, b: 0.5189527, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.86150706, g: 0.44514677, b: 0.53777665, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8590169, g: 0.34661806, b: 0.47679383, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.8629467, g: 0.51722854, b: 0.5285313, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.99727786, g: 0.4836034, b: 0.5686814, a: 1}
+  - serializedVersion: 2
+    m_RefCount: 1
+    m_Data: {r: 0.7878204, g: 0.52294517, b: 0.59306085, a: 1}
+>>>>>>> Stashed changes
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14531,7 +14853,11 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
+<<<<<<< Updated upstream
 --- !u!114 &4004618612833459578
+=======
+--- !u!114 &7514183538270410849
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

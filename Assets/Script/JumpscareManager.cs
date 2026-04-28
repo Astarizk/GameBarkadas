@@ -9,10 +9,14 @@ public class JumpscareManager : MonoBehaviour
 
     private AudioSource audioSource;
     private bool triggered = false;
+    private bool isPlaying = false;
+    private float elapsed = 0f;
+    private float duration = 0f;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
         if (jumpscareImage != null) jumpscareImage.gameObject.SetActive(false);
         if (gameOverCanvas != null) gameOverCanvas.SetActive(false);
     }
@@ -21,32 +25,37 @@ public class JumpscareManager : MonoBehaviour
     {
         if (triggered) return;
         triggered = true;
-        Time.timeScale = 0f;
-        AudioListener.pause = false; // make sure audio still plays when timeScale = 0
-        StartCoroutine(PlayJumpscare());
-    }
 
-    private System.Collections.IEnumerator PlayJumpscare()
-    {
         if (jumpscareImage != null) jumpscareImage.gameObject.SetActive(true);
 
+        // Play sound — must set these BEFORE timeScale = 0
         if (audioSource != null && jumpscareSound != null)
         {
             audioSource.ignoreListenerPause = true;
-            audioSource.clip = jumpscareSound;
-            audioSource.Play();
+            audioSource.PlayOneShot(jumpscareSound);
         }
 
-        float duration = jumpscareSound != null ? jumpscareSound.length : 2f;
+        duration = jumpscareSound != null ? jumpscareSound.length : 2f;
+        elapsed = 0f;
+        isPlaying = true;
 
-        float elapsed = 0f;
-        while (elapsed < duration)
-        {
-            elapsed += Time.unscaledDeltaTime;
-            yield return null;
-        }
-
-        if (jumpscareImage != null) jumpscareImage.gameObject.SetActive(false);
-        if (gameOverCanvas != null) gameOverCanvas.SetActive(true);
+        Time.timeScale = 0f;
+        AudioListener.pause = false;
     }
-}
+
+    // Use Update with unscaledDeltaTime instead of coroutine
+    // because coroutines can be unreliable when timeScale = 0
+    private void Update()
+    {
+        if (!isPlaying) return;
+
+        elapsed += Time.unscaledDeltaTime;
+
+        if (elapsed >= duration)
+        {
+            isPlaying = false;
+            if (jumpscareImage != null) jumpscareImage.gameObject.SetActive(false);
+            if (gameOverCanvas != null) gameOverCanvas.SetActive(true);
+        }
+    }
+}   

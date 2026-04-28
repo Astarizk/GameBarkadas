@@ -7,6 +7,7 @@ public class Retry : MonoBehaviour
 
     public void LevelSelect()
     {
+        Time.timeScale = 1f; // Resume game time
         SceneManager.LoadScene(Level);
     }
 }

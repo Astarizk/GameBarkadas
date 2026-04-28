@@ -39,7 +39,10 @@ public class EnemyAI : MonoBehaviour
     private enum EnemyState { Idle, Chase, GoToLastKnown, Wander }
     private EnemyState state = EnemyState.Idle;
     private Vector3 lastKnownPlayerPos;
+    
+    // Timers
     private float wanderWaitTimer = 0f;
+    private float nodeTimeoutTimer = 0f;
 
     private Vector3 lastRepathPos;
     private Vector3Int lastGoalCell;
@@ -69,6 +72,7 @@ public class EnemyAI : MonoBehaviour
         hasLastGoal = false;
         path.Clear();
         wanderWaitTimer = 0f;
+        nodeTimeoutTimer = 0f;
 
         for (int attempt = 0; attempt < 20; attempt++)
         {
@@ -137,9 +141,12 @@ public class EnemyAI : MonoBehaviour
         Vector3Int myCell = wallTilemap.WorldToCell(transform.position);
         Vector3Int playerCell = wallTilemap.WorldToCell(player.position);
         float distToPlayer = Vector2.Distance(transform.position, player.position);
+        
+        // This checks if the enemy currently has direct visual contact
         bool canSeePlayer = !DoorOrPortal.PlayerIsHidden && distToPlayer <= visionRange && CheckLineOfSight(myCell, playerCell);
 
-        if (canSeePlayer && !DoorOrPortal.PlayerIsHidden)
+        // If the enemy sees the player, ALWAYS enter chase mode
+        if (canSeePlayer)
         {
             state = EnemyState.Chase;
             lastKnownPlayerPos = player.position;
@@ -148,7 +155,8 @@ public class EnemyAI : MonoBehaviour
         switch (state)
         {
             case EnemyState.Chase:
-                if (DoorOrPortal.PlayerIsHidden && !canSeePlayer)
+                // If the player uses a cabinet, stop the relentless tracking
+                if (DoorOrPortal.PlayerIsHidden)
                 {
                     state = EnemyState.GoToLastKnown;
                     hasTarget = false;
@@ -156,6 +164,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 else
                 {
+                    // Relentlessly track the player, even around walls
                     lastKnownPlayerPos = player.position;
                     PathToPosition(player.position);
                 }
@@ -181,19 +190,12 @@ public class EnemyAI : MonoBehaviour
                 break;
 
             case EnemyState.Wander:
-                if (!DoorOrPortal.PlayerIsHidden && canSeePlayer)
-                {
-                    state = EnemyState.Chase;
-                    lastKnownPlayerPos = player.position;
-                    hasTarget = false;
-                    path.Clear();
-                    break;
-                }
+                // We don't need a state change here because the canSeePlayer check at the top handles it
                 HandleWander();
                 break;
 
             case EnemyState.Idle:
-                if (canSeePlayer) state = EnemyState.Chase;
+                // Handled by the canSeePlayer check at the top
                 break;
         }
     }
@@ -201,6 +203,9 @@ public class EnemyAI : MonoBehaviour
     void HandleWander()
     {
         if (hasTarget) return;
+        
+        // Wait at the destination before picking a new wander point
+        if (wanderWaitTimer > 0) return; 
 
         for (int attempt = 0; attempt < 20; attempt++)
         {
@@ -254,8 +259,9 @@ public class EnemyAI : MonoBehaviour
         path = newPath;
         pathIndex = Mathf.Min(bestIdx + 1, path.Count - 1);
         currentTarget = TileCenterFromCell(path[pathIndex]);
+        
         hasTarget = true;
-
+        nodeTimeoutTimer = 0f; // Reset stuck timer on new path
         lastGoalCell = goalCell;
         hasLastGoal = true;
         lastRepathPos = transform.position;
@@ -263,6 +269,12 @@ public class EnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Process wander wait time
+        if (wanderWaitTimer > 0)
+        {
+            wanderWaitTimer -= Time.fixedDeltaTime;
+        }
+
         if (!hasTarget || isWaitingToTeleport)
         {
             rb.linearVelocity = Vector2.SmoothDamp(
@@ -279,6 +291,17 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
+        // ANTI-SNAG SYSTEM: If we take longer than 2 seconds to reach a single tile, we are stuck on a corner.
+        nodeTimeoutTimer += Time.fixedDeltaTime;
+        if (nodeTimeoutTimer > 2f)
+        {
+            nodeTimeoutTimer = 0f;
+            hasTarget = false;
+            path.Clear();
+            if (state == EnemyState.Wander) wanderWaitTimer = 0.5f; // Brief pause before recalculating
+            return;
+        }
+
         rb.linearVelocity = Vector2.SmoothDamp(
             rb.linearVelocity, toTarget.normalized * moveSpeed, ref velocitySmoothing, velocitySmoothTime);
     }
@@ -286,6 +309,8 @@ public class EnemyAI : MonoBehaviour
     void AdvanceTarget()
     {
         pathIndex++;
+        nodeTimeoutTimer = 0f; // Reset timeout for the next tile
+
         if (path == null || pathIndex >= path.Count)
         {
             rb.linearVelocity = Vector2.zero;
@@ -294,7 +319,8 @@ public class EnemyAI : MonoBehaviour
 
             if (state == EnemyState.Wander)
             {
-                StartWander();
+                // Trigger the pause timer instead of instantly moving again
+                wanderWaitTimer = wanderWaitTime; 
             }
 
             return;

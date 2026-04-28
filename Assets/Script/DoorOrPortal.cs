@@ -27,15 +27,15 @@ public class DoorOrPortal : MonoBehaviour
             // 1. Teleport the player
             player.transform.position = destination.position;
 
+            // 3. Update hidden status
+            PlayerIsHidden = isHidingSpot;
+
             // 2. Alert the Enemy that a portal was just used!
             EnemyAI[] allEnemies = Object.FindObjectsByType<EnemyAI>(FindObjectsSortMode.None);
             foreach (EnemyAI enemy in allEnemies)
             {
                 enemy.OnPlayerUsedPortal(transform.position, destination, isHidingSpot);
             }
-
-            // 3. Update hidden status
-            PlayerIsHidden = isHidingSpot;
         }
     }
 

@@ -4,11 +4,17 @@ public class EnemyChaseSound : MonoBehaviour
 {
     public AudioClip chaseSound;
 
-    [Tooltip("Distance at which sound starts fading in.")]
+    [Header("Distance Settings")]
+    [Tooltip("Distance at which the sound starts to be heard (very quiet).")]
     public float maxHearDistance = 15f;
 
-    [Tooltip("Distance at which sound is at full volume.")]
+    [Tooltip("Distance at which the sound reaches its maximum volume.")]
     public float minHearDistance = 3f;
+
+    [Header("Volume & Fading")]
+    [Tooltip("The maximum volume the sound can reach (0.0 to 1.0).")]
+    [Range(0f, 1f)] 
+    public float maxVolume = 1f;
 
     [Tooltip("How smoothly the volume fades in/out.")]
     public float fadeSpeed = 2f;
@@ -47,7 +53,12 @@ public class EnemyChaseSound : MonoBehaviour
         if (isChasing)
         {
             float dist = Vector2.Distance(transform.position, player.position);
-            targetVolume = 1f - Mathf.InverseLerp(minHearDistance, maxHearDistance, dist);
+            
+            // Calculate how close the player is as a percentage (0 to 1)
+            float distanceRatio = 1f - Mathf.InverseLerp(minHearDistance, maxHearDistance, dist);
+            
+            // Multiply the ratio by your chosen maxVolume
+            targetVolume = distanceRatio * maxVolume;
         }
 
         audioSource.volume = Mathf.Lerp(audioSource.volume, targetVolume, fadeSpeed * Time.deltaTime);

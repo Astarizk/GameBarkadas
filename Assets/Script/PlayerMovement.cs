@@ -5,62 +5,57 @@ public class LayerMovement : MonoBehaviour
 {
     private float movementspeed = 5f;
     private Rigidbody2D rb;
-    private int flip = 0;
+    private Animator anim;
     private Vector2 moveInput;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>(); 
+
+        // Force the character to face DOWN when the game first starts
+        anim.SetFloat("LastInputX", 0f);
+        anim.SetFloat("LastInputY", -1f);
     }
 
     void Update()
     {
         float x = 0f;
         float y = 0f;
+        
         if (Time.timeScale == 0f)
         {
-            return; // stop all movement logic when paused
+            return; 
         }
 
-        if (Keyboard.current.aKey.isPressed)
-        {
-            x = -1; 
-            flip = 1;
-        }
-            
-        else if (Keyboard.current.dKey.isPressed )
-        {
-            x = 1;
-            flip = 0;
-        }
+        if (Keyboard.current.aKey.isPressed) x = -1; 
+        else if (Keyboard.current.dKey.isPressed) x = 1;
+
+        if (Keyboard.current.wKey.isPressed) y = 1;
+        else if (Keyboard.current.sKey.isPressed) y = -1;
+
+        // Lock to one direction only
+        if (x != 0) moveInput = new Vector2(x, 0); 
+        else if (y != 0) moveInput = new Vector2(0, y); 
+        else moveInput = Vector2.zero;
+
+        // --- ANIMATOR LOGIC START ---
         
+        // Check if we are moving (true or false)
+        bool isMoving = moveInput != Vector2.zero;
+        
+        // Tell the Animator true or false!
+        anim.SetBool("IsWalking", isMoving);
 
-        if (Keyboard.current.wKey.isPressed)
-            y = 1;
-        else if (Keyboard.current.sKey.isPressed)
-            y = -1;
+        if (isMoving)
+        {
+            anim.SetFloat("InputX", moveInput.x);
+            anim.SetFloat("InputY", moveInput.y);
 
-        //Lock to one direction only
-        if (x != 0)
-        {
-            moveInput = new Vector2(x, 0); // horizontal only
+            anim.SetFloat("LastInputX", moveInput.x);
+            anim.SetFloat("LastInputY", moveInput.y); 
         }
-        else if (y != 0)
-        {
-            moveInput = new Vector2(0, y); // vertical only
-        }
-        else
-        {
-            moveInput = Vector2.zero;
-        }
-        if (flip == 0)
-        {
-            transform.localScale = new Vector3(6, 6, 6);
-        }
-        else
-        {
-            transform.localScale = new Vector3(-6, 6, 6);
-        }
+        // --- ANIMATOR LOGIC END ---
     }
 
     void FixedUpdate()

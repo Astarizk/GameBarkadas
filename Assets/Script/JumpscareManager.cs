@@ -28,11 +28,18 @@ public class JumpscareManager : MonoBehaviour
 
         if (jumpscareImage != null) jumpscareImage.gameObject.SetActive(true);
 
+        // Stop chase sound on enemy
+        EnemyChaseSound chaseSound = FindFirstObjectByType<EnemyChaseSound>();
+        if (chaseSound != null) chaseSound.StopChaseSound();
+
         // Play sound — must set these BEFORE timeScale = 0
-        if (audioSource != null && jumpscareSound != null)
+        if (audioSource == null) Debug.LogError("NO AUDIOSOURCE ON JUMPSCAREMANAGER!");
+        else if (jumpscareSound == null) Debug.LogError("NO AUDIO CLIP ASSIGNED!");
+        else
         {
             audioSource.ignoreListenerPause = true;
             audioSource.PlayOneShot(jumpscareSound);
+            Debug.Log("Sound played: " + jumpscareSound.name);
         }
 
         duration = jumpscareSound != null ? jumpscareSound.length : 2f;
@@ -58,4 +65,4 @@ public class JumpscareManager : MonoBehaviour
             if (gameOverCanvas != null) gameOverCanvas.SetActive(true);
         }
     }
-}   
+}

@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LEVEL 5.5.unity
     guid: f5a13ca14de28d049bf42275572ee499
+  - enabled: 1
+    path: Assets/Scenes/BASEMENT (TEST LABS).unity
+    guid: 804eebebcfef4b94e8c89cf9f3cc0cee
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

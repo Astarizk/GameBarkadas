@@ -13,6 +13,8 @@ public class Dialogue : MonoBehaviour
     private bool playerNear = false;
     private bool isActive = false;
     public bool tutorial = false;
+    public bool HasParentImage;
+    public GameObject Image;
     void Update()
     {
         if (!playerNear) return;
@@ -47,6 +49,11 @@ public class Dialogue : MonoBehaviour
     void ShowLine()
     {
         dialogueText.gameObject.SetActive(true);
+        if (HasParentImage == true)
+        {
+            Image.gameObject.SetActive(true);
+        }
+        
         dialogueText.text = lines[currentLine];
     }
 
@@ -54,6 +61,10 @@ public class Dialogue : MonoBehaviour
     {
         isActive = false;
         dialogueText.gameObject.SetActive(false);
+        if (HasParentImage == true)
+        {
+            Image.gameObject.SetActive(false);
+        }
         dialogueText.text = "";
     }
 

@@ -3429,7 +3429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: Outside Mansion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 247f3862e129e0242b03192133acb073, type: 2}
   m_sharedMaterial: {fileID: -1251795734061465800, guid: 247f3862e129e0242b03192133acb073, type: 2}
@@ -3527,7 +3527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1410768930
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4149,7 +4149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1466330491
 RectTransform:
   m_ObjectHideFlags: 0

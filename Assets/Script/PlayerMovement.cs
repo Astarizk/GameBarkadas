@@ -7,7 +7,7 @@ public class LayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private Vector2 moveInput;
-
+    [HideInInspector] public bool canMove = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,7 +27,12 @@ public class LayerMovement : MonoBehaviour
         {
             return; 
         }
-
+        if (!canMove)
+        {
+            moveInput = Vector2.zero;
+            anim.SetBool("IsWalking", false);
+            return;
+        }
         if (Keyboard.current.aKey.isPressed) x = -1; 
         else if (Keyboard.current.dKey.isPressed) x = 1;
 

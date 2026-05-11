@@ -4,9 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class StairTP : MonoBehaviour
 {
-    // Global variable so EnemyAI knows if we are currently hidden
     public static bool PlayerIsHidden = false;
-
     public bool isNewScene;
     public int Scene;
     public Transform destination;
@@ -16,15 +14,17 @@ public class StairTP : MonoBehaviour
     public bool isHidingSpot = false;
 
     [Header("Blink Effect")]
-    public CanvasGroup fadeCanvas; // Assign black UI image with CanvasGroup
+    public CanvasGroup fadeCanvas;
     public float blinkDuration = 0.15f;
 
     private GameObject player;
+    private LayerMovement playerMovement; //  Replace with your movement script name
     private bool isTeleporting = false;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<LayerMovement>(); //  Same here
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,13 +39,14 @@ public class StairTP : MonoBehaviour
     {
         isTeleporting = true;
 
-        // Fade to black
+        Debug.Log("canMove BEFORE lock: " + playerMovement.canMove);
+        if (playerMovement != null) playerMovement.canMove = false;
+        Debug.Log("canMove AFTER lock: " + playerMovement.canMove);
+
         yield return StartCoroutine(Fade(0f, 1f));
 
-        // Teleport or change scene
         if (!isNewScene)
         {
-            Debug.Log("Teleport");
             player.transform.position = destination.position;
         }
         else
@@ -53,11 +54,12 @@ public class StairTP : MonoBehaviour
             SceneManager.LoadScene(Scene);
         }
 
-        // Small delay while screen is dark
         yield return new WaitForSeconds(0.1f);
-
-        // Fade back in
         yield return StartCoroutine(Fade(1f, 0f));
+
+        Debug.Log("canMove BEFORE restore: " + playerMovement.canMove);
+        if (playerMovement != null) playerMovement.canMove = true;
+        Debug.Log("canMove AFTER restore: " + playerMovement.canMove);
 
         isTeleporting = false;
     }
@@ -65,17 +67,13 @@ public class StairTP : MonoBehaviour
     IEnumerator Fade(float startAlpha, float endAlpha)
     {
         float elapsed = 0f;
-
         while (elapsed < blinkDuration)
         {
             elapsed += Time.deltaTime;
-
             float alpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / blinkDuration);
             fadeCanvas.alpha = alpha;
-
             yield return null;
         }
-
         fadeCanvas.alpha = endAlpha;
     }
 }

@@ -8,6 +8,7 @@ public class Key : MonoBehaviour
 
     [Header("For Key")]
     [SerializeField] public bool key1 = false;
+    public GameObject Dialog;
 
     [Header("For Ladder")]
     [SerializeField] public bool gotLadder;
@@ -24,6 +25,10 @@ public class Key : MonoBehaviour
             {
                 key1 = true;
                 Debug.Log("Key picked up!");
+                gameObject.SetActive(false);
+                if (Dialog == null) return;
+                Dialog.SetActive(false);
+                
             }
             else
             {
@@ -35,8 +40,8 @@ public class Key : MonoBehaviour
                     manager.LadderItem = true; //  DIRECTLY UPDATE
                 }
             }
-
             gameObject.SetActive(false);
+
         }
     }
 

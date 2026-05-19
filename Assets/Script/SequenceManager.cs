@@ -6,6 +6,7 @@ using System.Collections;
 public class SequenceManager : MonoBehaviour
 {
     public int[] correctSequence = { 0, 1, 2 };
+    public int Which;
     private int currentIndex = 0;
 
     [Header("Cabinet")]

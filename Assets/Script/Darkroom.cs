@@ -2,16 +2,11 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 public class Darkroom : MonoBehaviour
 {
-    private Light2D light;
+    public Light2D light;
     private GameObject player;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        GameObject lightObj = GameObject.FindGameObjectWithTag("Light");
-        if (lightObj != null)
-        {
-            light = lightObj.GetComponent<Light2D>();
-        };
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
